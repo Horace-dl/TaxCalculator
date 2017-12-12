@@ -1,0 +1,45 @@
+﻿<Window x:Class="PersonalTaxCal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="个税计算器" Height="300" Width="450" ResizeMode="NoResize" Background="LightCyan">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="4" Margin="3 3 3 3">
+            <Label Margin="1 1 1 1">基本工资</Label>
+            <TextBox Name="tbBaseIncome" Text="{Binding BaseIncome}" Width="50" Margin="1 1 1 1"></TextBox>
+            <Label Margin="1 1 1 1">五险一金</Label>
+            <TextBox Width="50" HorizontalAlignment ="Center" VerticalAlignment="Center" Text="{Binding InsuranceValue}" Margin="1 1 1 1"></TextBox>
+            <Label Margin="1 1 1 1">年终奖</Label>
+            <TextBox Name="tbYearBonus" Text="{Binding YearBonus}" Width="50" Margin="1 1 1 1"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="3 3 3 3">
+            <Label Margin="1 1 1 1">13薪发放月</Label>
+            <RadioButton Content="12月发" GroupName="TimeType" IsChecked="{Binding Path=DecGetType, Mode=TwoWay}" Margin="1 1 1 1"></RadioButton>
+            <RadioButton Content="明年4月发" GroupName="TimeType" IsChecked="{Binding Path=ApriGetType, Mode=TwoWay}" Margin="1 1 1 1"></RadioButton>
+            <Button Name="btCalculate" Content="计算" Width="60" HorizontalAlignment="Center" Click="BtCalculate_OnClick" Margin="1 1 1 1"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="3 3 3 3" Orientation="Horizontal">
+            <Label Margin="1 1 1 1">单月个税</Label>
+            <TextBlock Width="50" Background="Aquamarine" HorizontalAlignment ="Center" VerticalAlignment="Center" Text="{Binding TaxOfMon}" Margin="1 1 1 1"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal" Margin="3 3 3 3">
+            <Label Margin="1 1 1 1">12月税</Label>
+            <TextBlock Width="50" Background="Aquamarine" HorizontalAlignment ="Center" VerticalAlignment="Center" Text="{Binding TaxOfDec}" Margin="1 1 1 1"></TextBlock>
+            <Label Margin="1 1 1 1">4月税</Label>
+            <TextBlock Width="50" Background="Aquamarine" HorizontalAlignment ="Center" VerticalAlignment="Center" Text="{Binding TaxOfApr}" Margin="1 1 1 1"></TextBlock>
+            <Label Margin="1 1 1 1">共计</Label>
+            <TextBlock Width="50" Background="Coral" HorizontalAlignment ="Center" VerticalAlignment="Center" Text="{Binding TotalTax}" Margin="1 1 1 1"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
