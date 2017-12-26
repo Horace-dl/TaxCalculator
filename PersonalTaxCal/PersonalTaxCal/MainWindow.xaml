@@ -18,8 +18,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="4" Margin="3 3 3 3">
             <Label Margin="1 1 1 1">基本工资</Label>
             <TextBox Name="tbBaseIncome" Text="{Binding BaseIncome}" Width="50" Margin="1 1 1 1"></TextBox>
-            <Label Margin="1 1 1 1">五险一金</Label>
-            <TextBox Width="50" HorizontalAlignment ="Center" VerticalAlignment="Center" Text="{Binding InsuranceValue}" Margin="1 1 1 1"></TextBox>
+            <Button Name="btDetailIncome" Click="btDetailIncome_Click">薪资详细信息</Button>
             <Label Margin="1 1 1 1">年终奖</Label>
             <TextBox Name="tbYearBonus" Text="{Binding YearBonus}" Width="50" Margin="1 1 1 1"></TextBox>
         </StackPanel>
